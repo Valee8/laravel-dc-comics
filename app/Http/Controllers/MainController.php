@@ -27,14 +27,12 @@ class MainController extends Controller
         return redirect() -> route('home');
     }
 
-    // Crea un nuovo santo
     public function personCreate() {
 
         return view('pages.personCreate');
 
     }
 
-    // Salva dati del form di un nuovo santo
     public function personStore(Request $request) {
         $data = $request -> validate([
             'firstName' => 'required|string|max:32',
@@ -42,8 +40,6 @@ class MainController extends Controller
             'dateOfBirth' => 'required|date',
             'height' => 'decimal:1|min:1.4|max:2',
         ]);
-
-        $data = $request -> all();
 
         $person = new Person();
         
