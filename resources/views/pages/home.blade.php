@@ -15,7 +15,7 @@
         @foreach ($people as $person)
 
             <li>
-                <a href="{{ route('person.show', $person) }}">{{ $person -> firstName }} {{ $person -> lastName }}</a> - <a href="{{ route('person.delete', $person) }}">delete</a>
+                <a href="{{ route('person.show', $person) }}">{{ $person -> firstName }} {{ $person -> lastName }}</a> - <a href="{{ route('person.delete', $person) }}">delete</a> - <a href="{{ route('person.edit', $person) }}">Edit</a>
             </li>
         
         @endforeach
