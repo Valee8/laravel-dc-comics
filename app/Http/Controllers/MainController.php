@@ -10,7 +10,7 @@ class MainController extends Controller
 {
     public function home() {
         
-        $people = Person::all();
+        $people = Person::orderBy('created_at', 'DESC') -> get();
 
         return view('pages.home', compact('people'));
     }
@@ -23,6 +23,36 @@ class MainController extends Controller
 
     public function personDelete(Person $person) {
         $person -> delete();
+
+        return redirect() -> route('home');
+    }
+
+    // Crea un nuovo santo
+    public function personCreate() {
+
+        return view('pages.personCreate');
+
+    }
+
+    // Salva dati del form di un nuovo santo
+    public function personStore(Request $request) {
+        $data = $request -> validate([
+            'firstName' => 'required|string|max:32',
+            'lastName' => 'required|string|max:32',
+            'dateOfBirth' => 'required|date',
+            'height' => 'decimal:1|min:1.4|max:2',
+        ]);
+
+        $data = $request -> all();
+
+        $person = new Person();
+        
+        $person -> firstName = $data['firstName'];
+        $person -> lastName = $data['lastName'];
+        $person -> dateOfBirth = $data['dateOfBirth'];
+        $person -> height = $data['height'];
+
+        $person -> save();
 
         return redirect() -> route('home');
     }
