@@ -7,6 +7,10 @@
         People
     </h1>
 
+    <h2>
+        <a href="{{ route('person.create') }}">Create new person</a>
+    </h2>
+
     <ul>
         @foreach ($people as $person)
 
