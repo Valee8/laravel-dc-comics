@@ -18,7 +18,7 @@ return new class extends Migration
             $table -> string('firstName', 32);
             $table -> string('lastName', 32);
             $table -> date('dateOfBirth');
-            $table -> float('height') -> unsigned() -> nullable(true);
+            $table -> integer('height') -> unsigned() -> nullable(true);
             $table -> timestamps();
         });
     }

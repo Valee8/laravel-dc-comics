@@ -19,7 +19,7 @@
         <input type="date" name="dateOfBirth">
         <br>
         <label for="height">Height: </label>
-        <input type="number" name="height" step="0.01">
+        <input type="number" name="height">
         <br>
         <input type="submit" value="Create">
     </form>

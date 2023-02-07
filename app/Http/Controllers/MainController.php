@@ -37,8 +37,8 @@ class MainController extends Controller
         $data = $request -> validate([
             'firstName' => 'required|string|max:32',
             'lastName' => 'required|string|max:32',
-            'dateOfBirth' => 'required|date',
-            'height' => 'decimal:1|min:1.4|max:2',
+            'dateOfBirth' => 'required|date|before:today',
+            'height' => 'nullable|integer|min:40|max:250',
         ]);
 
         $person = new Person();
@@ -63,8 +63,8 @@ class MainController extends Controller
         $data = $request -> validate([
             'firstName' => 'required|string|max:32',
             'lastName' => 'required|string|max:32',
-            'dateOfBirth' => 'required|date',
-            'height' => 'decimal:1|min:1.4|max:2',
+            'dateOfBirth' => 'required|date|before:today',
+            'height' => 'nullable|integer|min:40|max:250',
         ]);
 
         $person = new Person();

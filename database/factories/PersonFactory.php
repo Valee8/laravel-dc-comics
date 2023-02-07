@@ -20,7 +20,7 @@ class PersonFactory extends Factory
             'firstName' => fake() -> firstName($gender = null),
             'lastName' => fake() -> lastName(),
             'dateOfBirth' => fake() -> date(),
-            'height' => fake() -> randomFloat(2, 1.4, 2),
+            'height' => fake() -> numberBetween(100, 200),
         ];
     }
 }
