@@ -66,8 +66,6 @@ class MainController extends Controller
             'dateOfBirth' => 'required|date|before:today',
             'height' => 'nullable|integer|min:40|max:250',
         ]);
-
-        $person = new Person();
         
         $person -> firstName = $data['firstName'];
         $person -> lastName = $data['lastName'];
